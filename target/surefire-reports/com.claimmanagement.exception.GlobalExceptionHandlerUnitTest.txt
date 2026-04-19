@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.claimmanagement.exception.GlobalExceptionHandlerUnitTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.668 s -- in com.claimmanagement.exception.GlobalExceptionHandlerUnitTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.726 s -- in com.claimmanagement.exception.GlobalExceptionHandlerUnitTest

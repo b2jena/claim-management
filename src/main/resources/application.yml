@@ -32,6 +32,7 @@ spring:
 
   # JPA/Hibernate Configuration
   jpa:
+    defer-datasource-initialization: true  # Run data.sql after Hibernate creates schema
     database-platform: org.hibernate.dialect.H2Dialect  # H2 SQL dialect
     hibernate:
       ddl-auto: create-drop          # Database schema management strategy

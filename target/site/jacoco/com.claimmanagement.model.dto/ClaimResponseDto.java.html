@@ -3,266 +3,250 @@
 import com.claimmanagement.model.entity.ClaimStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
  * Data Transfer Object for Claim Response
- * 
- * This DTO is used for:
- * 1. Returning claim data in API responses
- * 2. Controlling what information is exposed to clients
- * 3. Providing a stable API contract independent of entity changes
- * 4. Including computed or derived fields not stored in the entity
- * 
- * Key differences from ClaimRequestDto:
- * - Includes system-generated fields (id, claimNumber, timestamps)
- * - No validation annotations (data is already validated)
- * - Read-only representation of claim data
- * - May include additional computed fields
- * 
+ *
+ * &lt;p&gt;This DTO is used for: 1. Returning claim data in API responses 2. Controlling what information
+ * is exposed to clients 3. Providing a stable API contract independent of entity changes 4.
+ * Including computed or derived fields not stored in the entity
+ *
+ * &lt;p&gt;Key differences from ClaimRequestDto: - Includes system-generated fields (id, claimNumber,
+ * timestamps) - No validation annotations (data is already validated) - Read-only representation of
+ * claim data - May include additional computed fields
+ *
  * @author Claim Management Team
  */
 @Schema(description = &quot;Response object containing claim information&quot;)
 public class ClaimResponseDto {
 
-    /**
-     * Unique identifier of the claim (system-generated)
-     */
-    @Schema(description = &quot;Unique identifier of the claim&quot;, example = &quot;1&quot;)
-    private Long id;
+  /** Unique identifier of the claim (system-generated) */
+  @Schema(description = &quot;Unique identifier of the claim&quot;, example = &quot;1&quot;)
+  private Long id;
 
-    /**
-     * Business identifier for the claim (system-generated)
-     */
-    @Schema(description = &quot;Unique claim number&quot;, example = &quot;CLM-2024-001234&quot;)
-    private String claimNumber;
+  /** Business identifier for the claim (system-generated) */
+  @Schema(description = &quot;Unique claim number&quot;, example = &quot;CLM-2024-001234&quot;)
+  private String claimNumber;
 
-    /**
-     * Policy number associated with the claim
-     */
-    @Schema(description = &quot;Policy number associated with the claim&quot;, example = &quot;POL-2024-001234&quot;)
-    private String policyNumber;
+  /** Policy number associated with the claim */
+  @Schema(description = &quot;Policy number associated with the claim&quot;, example = &quot;POL-2024-001234&quot;)
+  private String policyNumber;
 
-    /**
-     * Name of the claimant
-     */
-    @Schema(description = &quot;Full name of the claimant&quot;, example = &quot;John Doe&quot;)
-    private String claimantName;
+  /** Name of the claimant */
+  @Schema(description = &quot;Full name of the claimant&quot;, example = &quot;John Doe&quot;)
+  private String claimantName;
 
-    /**
-     * Email address of the claimant
-     */
-    @Schema(description = &quot;Email address of the claimant&quot;, example = &quot;john.doe@email.com&quot;)
-    private String claimantEmail;
+  /** Email address of the claimant */
+  @Schema(description = &quot;Email address of the claimant&quot;, example = &quot;john.doe@email.com&quot;)
+  private String claimantEmail;
 
-    /**
-     * Phone number of the claimant
-     */
-    @Schema(description = &quot;Phone number of the claimant&quot;, example = &quot;+1-555-123-4567&quot;)
-    private String claimantPhone;
+  /** Phone number of the claimant */
+  @Schema(description = &quot;Phone number of the claimant&quot;, example = &quot;+1-555-123-4567&quot;)
+  private String claimantPhone;
 
-    /**
-     * Description of the claim
-     */
-    @Schema(description = &quot;Detailed description of the claim incident&quot;)
-    private String description;
+  /** Description of the claim */
+  @Schema(description = &quot;Detailed description of the claim incident&quot;)
+  private String description;
 
-    /**
-     * Amount being claimed
-     */
-    @Schema(description = &quot;Amount being claimed in USD&quot;, example = &quot;5000.00&quot;)
-    private BigDecimal claimAmount;
+  /** Amount being claimed */
+  @Schema(description = &quot;Amount being claimed in USD&quot;, example = &quot;5000.00&quot;)
+  private BigDecimal claimAmount;
 
-    /**
-     * Current status of the claim
-     */
-    @Schema(description = &quot;Current status of the claim&quot;, example = &quot;SUBMITTED&quot;)
-    private ClaimStatus status;
+  /** Current status of the claim */
+  @Schema(description = &quot;Current status of the claim&quot;, example = &quot;SUBMITTED&quot;)
+  private ClaimStatus status;
 
-    /**
-     * Date and time when the incident occurred
-     */
-    @JsonFormat(pattern = &quot;yyyy-MM-dd'T'HH:mm:ss&quot;)
-    @Schema(description = &quot;Date and time when the incident occurred&quot;, example = &quot;2024-01-15T14:30:00&quot;)
-    private LocalDateTime incidentDate;
+  /** Date and time when the incident occurred */
+  @JsonFormat(pattern = &quot;yyyy-MM-dd'T'HH:mm:ss&quot;)
+  @Schema(description = &quot;Date and time when the incident occurred&quot;, example = &quot;2024-01-15T14:30:00&quot;)
+  private LocalDateTime incidentDate;
 
-    /**
-     * Timestamp when the claim was created
-     */
-    @JsonFormat(pattern = &quot;yyyy-MM-dd'T'HH:mm:ss&quot;)
-    @Schema(description = &quot;Date and time when the claim was created&quot;, example = &quot;2024-01-16T09:00:00&quot;)
-    private LocalDateTime createdAt;
+  /** Timestamp when the claim was created */
+  @JsonFormat(pattern = &quot;yyyy-MM-dd'T'HH:mm:ss&quot;)
+  @Schema(description = &quot;Date and time when the claim was created&quot;, example = &quot;2024-01-16T09:00:00&quot;)
+  private LocalDateTime createdAt;
 
-    /**
-     * Timestamp when the claim was last updated
-     */
-    @JsonFormat(pattern = &quot;yyyy-MM-dd'T'HH:mm:ss&quot;)
-    @Schema(description = &quot;Date and time when the claim was last updated&quot;, example = &quot;2024-01-16T10:30:00&quot;)
-    private LocalDateTime updatedAt;
+  /** Timestamp when the claim was last updated */
+  @JsonFormat(pattern = &quot;yyyy-MM-dd'T'HH:mm:ss&quot;)
+  @Schema(
+      description = &quot;Date and time when the claim was last updated&quot;,
+      example = &quot;2024-01-16T10:30:00&quot;)
+  private LocalDateTime updatedAt;
 
-    /**
-     * Default constructor for JSON serialization
-     */
-<span class="fc" id="L108">    public ClaimResponseDto() {</span>
-<span class="fc" id="L109">    }</span>
+  /** Default constructor for JSON serialization */
+<span class="fc" id="L79">  public ClaimResponseDto() {}</span>
 
-    /**
-     * Constructor with all fields
-     * Useful for programmatic creation and testing
-     */
-    public ClaimResponseDto(Long id, String claimNumber, String policyNumber, String claimantName, 
-                           String claimantEmail, String claimantPhone, String description, 
-                           BigDecimal claimAmount, ClaimStatus status, LocalDateTime incidentDate, 
-<span class="nc" id="L118">                           LocalDateTime createdAt, LocalDateTime updatedAt) {</span>
-<span class="nc" id="L119">        this.id = id;</span>
-<span class="nc" id="L120">        this.claimNumber = claimNumber;</span>
-<span class="nc" id="L121">        this.policyNumber = policyNumber;</span>
-<span class="nc" id="L122">        this.claimantName = claimantName;</span>
-<span class="nc" id="L123">        this.claimantEmail = claimantEmail;</span>
-<span class="nc" id="L124">        this.claimantPhone = claimantPhone;</span>
-<span class="nc" id="L125">        this.description = description;</span>
-<span class="nc" id="L126">        this.claimAmount = claimAmount;</span>
-<span class="nc" id="L127">        this.status = status;</span>
-<span class="nc" id="L128">        this.incidentDate = incidentDate;</span>
-<span class="nc" id="L129">        this.createdAt = createdAt;</span>
-<span class="nc" id="L130">        this.updatedAt = updatedAt;</span>
-<span class="nc" id="L131">    }</span>
+  /** Constructor with all fields Useful for programmatic creation and testing */
+  public ClaimResponseDto(
+      Long id,
+      String claimNumber,
+      String policyNumber,
+      String claimantName,
+      String claimantEmail,
+      String claimantPhone,
+      String description,
+      BigDecimal claimAmount,
+      ClaimStatus status,
+      LocalDateTime incidentDate,
+      LocalDateTime createdAt,
+<span class="nc" id="L94">      LocalDateTime updatedAt) {</span>
+<span class="nc" id="L95">    this.id = id;</span>
+<span class="nc" id="L96">    this.claimNumber = claimNumber;</span>
+<span class="nc" id="L97">    this.policyNumber = policyNumber;</span>
+<span class="nc" id="L98">    this.claimantName = claimantName;</span>
+<span class="nc" id="L99">    this.claimantEmail = claimantEmail;</span>
+<span class="nc" id="L100">    this.claimantPhone = claimantPhone;</span>
+<span class="nc" id="L101">    this.description = description;</span>
+<span class="nc" id="L102">    this.claimAmount = claimAmount;</span>
+<span class="nc" id="L103">    this.status = status;</span>
+<span class="nc" id="L104">    this.incidentDate = incidentDate;</span>
+<span class="nc" id="L105">    this.createdAt = createdAt;</span>
+<span class="nc" id="L106">    this.updatedAt = updatedAt;</span>
+<span class="nc" id="L107">  }</span>
 
-    // Getters and Setters
+  // Getters and Setters
 
-    public Long getId() {
-<span class="fc" id="L136">        return id;</span>
-    }
+  public Long getId() {
+<span class="fc" id="L112">    return id;</span>
+  }
 
-    public void setId(Long id) {
-<span class="fc" id="L140">        this.id = id;</span>
-<span class="fc" id="L141">    }</span>
+  public void setId(Long id) {
+<span class="fc" id="L116">    this.id = id;</span>
+<span class="fc" id="L117">  }</span>
 
-    public String getClaimNumber() {
-<span class="fc" id="L144">        return claimNumber;</span>
-    }
+  public String getClaimNumber() {
+<span class="fc" id="L120">    return claimNumber;</span>
+  }
 
-    public void setClaimNumber(String claimNumber) {
-<span class="fc" id="L148">        this.claimNumber = claimNumber;</span>
-<span class="fc" id="L149">    }</span>
+  public void setClaimNumber(String claimNumber) {
+<span class="fc" id="L124">    this.claimNumber = claimNumber;</span>
+<span class="fc" id="L125">  }</span>
 
-    public String getPolicyNumber() {
-<span class="fc" id="L152">        return policyNumber;</span>
-    }
+  public String getPolicyNumber() {
+<span class="fc" id="L128">    return policyNumber;</span>
+  }
 
-    public void setPolicyNumber(String policyNumber) {
-<span class="fc" id="L156">        this.policyNumber = policyNumber;</span>
-<span class="fc" id="L157">    }</span>
+  public void setPolicyNumber(String policyNumber) {
+<span class="fc" id="L132">    this.policyNumber = policyNumber;</span>
+<span class="fc" id="L133">  }</span>
 
-    public String getClaimantName() {
-<span class="fc" id="L160">        return claimantName;</span>
-    }
+  public String getClaimantName() {
+<span class="fc" id="L136">    return claimantName;</span>
+  }
 
-    public void setClaimantName(String claimantName) {
-<span class="fc" id="L164">        this.claimantName = claimantName;</span>
-<span class="fc" id="L165">    }</span>
+  public void setClaimantName(String claimantName) {
+<span class="fc" id="L140">    this.claimantName = claimantName;</span>
+<span class="fc" id="L141">  }</span>
 
-    public String getClaimantEmail() {
-<span class="fc" id="L168">        return claimantEmail;</span>
-    }
+  public String getClaimantEmail() {
+<span class="fc" id="L144">    return claimantEmail;</span>
+  }
 
-    public void setClaimantEmail(String claimantEmail) {
-<span class="fc" id="L172">        this.claimantEmail = claimantEmail;</span>
-<span class="fc" id="L173">    }</span>
+  public void setClaimantEmail(String claimantEmail) {
+<span class="fc" id="L148">    this.claimantEmail = claimantEmail;</span>
+<span class="fc" id="L149">  }</span>
 
-    public String getClaimantPhone() {
-<span class="fc" id="L176">        return claimantPhone;</span>
-    }
+  public String getClaimantPhone() {
+<span class="fc" id="L152">    return claimantPhone;</span>
+  }
 
-    public void setClaimantPhone(String claimantPhone) {
-<span class="fc" id="L180">        this.claimantPhone = claimantPhone;</span>
-<span class="fc" id="L181">    }</span>
+  public void setClaimantPhone(String claimantPhone) {
+<span class="fc" id="L156">    this.claimantPhone = claimantPhone;</span>
+<span class="fc" id="L157">  }</span>
 
-    public String getDescription() {
-<span class="fc" id="L184">        return description;</span>
-    }
+  public String getDescription() {
+<span class="fc" id="L160">    return description;</span>
+  }
 
-    public void setDescription(String description) {
-<span class="fc" id="L188">        this.description = description;</span>
-<span class="fc" id="L189">    }</span>
+  public void setDescription(String description) {
+<span class="fc" id="L164">    this.description = description;</span>
+<span class="fc" id="L165">  }</span>
 
-    public BigDecimal getClaimAmount() {
-<span class="fc" id="L192">        return claimAmount;</span>
-    }
+  public BigDecimal getClaimAmount() {
+<span class="fc" id="L168">    return claimAmount;</span>
+  }
 
-    public void setClaimAmount(BigDecimal claimAmount) {
-<span class="fc" id="L196">        this.claimAmount = claimAmount;</span>
-<span class="fc" id="L197">    }</span>
+  public void setClaimAmount(BigDecimal claimAmount) {
+<span class="fc" id="L172">    this.claimAmount = claimAmount;</span>
+<span class="fc" id="L173">  }</span>
 
-    public ClaimStatus getStatus() {
-<span class="fc" id="L200">        return status;</span>
-    }
+  public ClaimStatus getStatus() {
+<span class="fc" id="L176">    return status;</span>
+  }
 
-    public void setStatus(ClaimStatus status) {
-<span class="fc" id="L204">        this.status = status;</span>
-<span class="fc" id="L205">    }</span>
+  public void setStatus(ClaimStatus status) {
+<span class="fc" id="L180">    this.status = status;</span>
+<span class="fc" id="L181">  }</span>
 
-    public LocalDateTime getIncidentDate() {
-<span class="fc" id="L208">        return incidentDate;</span>
-    }
+  public LocalDateTime getIncidentDate() {
+<span class="fc" id="L184">    return incidentDate;</span>
+  }
 
-    public void setIncidentDate(LocalDateTime incidentDate) {
-<span class="fc" id="L212">        this.incidentDate = incidentDate;</span>
-<span class="fc" id="L213">    }</span>
+  public void setIncidentDate(LocalDateTime incidentDate) {
+<span class="fc" id="L188">    this.incidentDate = incidentDate;</span>
+<span class="fc" id="L189">  }</span>
 
-    public LocalDateTime getCreatedAt() {
-<span class="fc" id="L216">        return createdAt;</span>
-    }
+  public LocalDateTime getCreatedAt() {
+<span class="fc" id="L192">    return createdAt;</span>
+  }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-<span class="fc" id="L220">        this.createdAt = createdAt;</span>
-<span class="fc" id="L221">    }</span>
+  public void setCreatedAt(LocalDateTime createdAt) {
+<span class="fc" id="L196">    this.createdAt = createdAt;</span>
+<span class="fc" id="L197">  }</span>
 
-    public LocalDateTime getUpdatedAt() {
-<span class="fc" id="L224">        return updatedAt;</span>
-    }
+  public LocalDateTime getUpdatedAt() {
+<span class="fc" id="L200">    return updatedAt;</span>
+  }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-<span class="fc" id="L228">        this.updatedAt = updatedAt;</span>
-<span class="fc" id="L229">    }</span>
+  public void setUpdatedAt(LocalDateTime updatedAt) {
+<span class="fc" id="L204">    this.updatedAt = updatedAt;</span>
+<span class="fc" id="L205">  }</span>
 
-    /**
-     * Convenience method to check if claim is in a terminal state
-     * This is a computed property not stored in the database
-     * 
-     * @return true if the claim cannot be modified further
-     */
-    @Schema(description = &quot;Indicates if the claim is in a terminal state&quot;)
-    public boolean isTerminal() {
-<span class="pc bpc" id="L239" title="2 of 4 branches missed.">        return status != null &amp;&amp; status.isTerminal();</span>
-    }
+  /**
+   * Convenience method to check if claim is in a terminal state This is a computed property not
+   * stored in the database
+   *
+   * @return true if the claim cannot be modified further
+   */
+  @Schema(description = &quot;Indicates if the claim is in a terminal state&quot;)
+  public boolean isTerminal() {
+<span class="pc bpc" id="L215" title="2 of 4 branches missed.">    return status != null &amp;&amp; status.isTerminal();</span>
+  }
 
-    /**
-     * Convenience method to check if claim was successfully processed
-     * 
-     * @return true if the claim was paid
-     */
-    @Schema(description = &quot;Indicates if the claim was successfully processed&quot;)
-    public boolean isSuccessful() {
-<span class="pc bpc" id="L249" title="2 of 4 branches missed.">        return status != null &amp;&amp; status.isSuccessful();</span>
-    }
+  /**
+   * Convenience method to check if claim was successfully processed
+   *
+   * @return true if the claim was paid
+   */
+  @Schema(description = &quot;Indicates if the claim was successfully processed&quot;)
+  public boolean isSuccessful() {
+<span class="pc bpc" id="L225" title="2 of 4 branches missed.">    return status != null &amp;&amp; status.isSuccessful();</span>
+  }
 
-    /**
-     * String representation for debugging and logging
-     */
-    @Override
-    public String toString() {
-<span class="nc" id="L257">        return &quot;ClaimResponseDto{&quot; +</span>
-                &quot;id=&quot; + id +
-                &quot;, claimNumber='&quot; + claimNumber + '\'' +
-                &quot;, policyNumber='&quot; + policyNumber + '\'' +
-                &quot;, claimantName='&quot; + claimantName + '\'' +
-                &quot;, claimAmount=&quot; + claimAmount +
-                &quot;, status=&quot; + status +
-                &quot;, createdAt=&quot; + createdAt +
-                '}';
-    }
+  /** String representation for debugging and logging */
+  @Override
+  public String toString() {
+<span class="nc" id="L231">    return &quot;ClaimResponseDto{&quot;</span>
+        + &quot;id=&quot;
+        + id
+        + &quot;, claimNumber='&quot;
+        + claimNumber
+        + '\''
+        + &quot;, policyNumber='&quot;
+        + policyNumber
+        + '\''
+        + &quot;, claimantName='&quot;
+        + claimantName
+        + '\''
+        + &quot;, claimAmount=&quot;
+        + claimAmount
+        + &quot;, status=&quot;
+        + status
+        + &quot;, createdAt=&quot;
+        + createdAt
+        + '}';
+  }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
