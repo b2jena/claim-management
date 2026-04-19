@@ -7,14 +7,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.2</version>
+        <version>3.5.13</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     
     <!-- Project Coordinates -->
     <groupId>com.claimmanagement</groupId>
     <artifactId>claim-management-service</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>claim-management-service</name>
     <description>Comprehensive Claim Management Microservice built with Spring Boot</description>
     
@@ -154,19 +154,6 @@
                 </executions>
             </plugin>
             
-            <!-- fmt-maven-plugin: Google Java Format code formatter -->
-            <plugin>
-                <groupId>com.spotify.fmt</groupId>
-                <artifactId>fmt-maven-plugin</artifactId>
-                <version>2.23</version>
-                <executions>
-                    <execution>
-                        <goals><goal>format</goal></goals>
-                        <phase>validate</phase>
-                    </execution>
-                </executions>
-            </plugin>
-
             <!-- Maven Surefire Plugin: Unit test execution -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -179,6 +166,19 @@
                     </includes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.spotify.fmt</groupId>
+                <artifactId>fmt-maven-plugin</artifactId>
+                <version>2.27</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 </project>
